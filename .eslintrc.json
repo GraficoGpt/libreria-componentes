@@ -1,0 +1,27 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": ["tsconfig.json"],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "prettier",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        // tus reglas personalizadas de ESLint aquí
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {
+        // tus reglas personalizadas de ESLint para plantillas aquí
+      }
+    }
+  ]
+}

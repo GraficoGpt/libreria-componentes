@@ -1,0 +1,19 @@
+<div class="sdp-card">
+  <div class="sdp-card-box" [ngClass]="[cardType]">
+    <div class="sdp-card-image">
+      <img [src]="cardImage" alt="">
+    </div>
+    <div class="sdp-card-text">
+      <div class="sdp-card-title">
+        <h3>{{cardTitle}}</h3>
+      </div>
+      <div class="sdp-card-body">
+        <p>{{cardBody}}</p>
+      </div>
+    </div>
+    <div class="sdp-card-btn">
+      <app-button
+      >Botón</app-button>
+    </div>
+  </div>
+</div>

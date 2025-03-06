@@ -1,0 +1,107 @@
+.container-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sdp-btn {
+  border: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+}
+
+/* Sizes */
+.sdp-btn--large {
+  padding: 1rem;
+  font-size: var(--size-16);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  line-height: 26px;
+  border-radius: var(--size-24);
+}
+
+.sdp-btn--medium {
+  padding: var(--size-12) var(--size-16);
+  font-size: var(--size-16);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  line-height: 24px;
+  border-radius: var(--size-24);
+}
+
+.sdp-btn--small {
+  padding: var(--size-8);
+  font-size: var(--size-14);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  line-height: 20px;
+  border-radius: var(--size-24);
+}
+
+/* Types */
+.sdp-btn--primary {
+  background-color: var(--primary-500);
+  color: var(--white);
+}
+
+.sdp-btn--primary:hover {
+  background-color: var(--primary-300);
+}
+
+.sdp-btn--primary:disabled {
+  background-color: var(--neutral-100);
+  color: var(--neutral-400);
+}
+
+.sdp-btn--secondary {
+  background-color: none;
+  color: var(--primary-500);
+  border: 1px solid var(--primary-500);
+}
+
+.sdp-btn--secondary:hover {
+  background-color: var(--primary-50);
+  color: var(--primary-500);
+  border: 1px solid var(--primary-500);
+}
+
+.sdp-btn--secondary:disabled {
+  background-color: var(--neutral-100);
+  color: var(--neutral-400);
+  border: 1px solid var(--neutral-300);
+}
+
+.sdp-btn--text {
+  background-color: transparent;
+  color: var(--primary-500);
+  font-weight: var(--font-weight-bold);
+}
+
+.sdp-btn--text:hover {
+  background-color: var(--primary-50);
+}
+
+.sdp-btn--text:disabled {
+  background-color: var(--neutral-100);
+  color: var(--neutral-400);
+}
+
+/* States */
+.full-width {
+  width: 100%;
+}
+
+
+@media (max-width:700px) {
+  .primary {
+    max-width: 100%;
+  }
+}

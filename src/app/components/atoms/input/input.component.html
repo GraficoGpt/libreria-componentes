@@ -1,0 +1,37 @@
+<div class="input-group">
+  <label
+    [for]="id"
+    [ngClass]="{
+      'error-label': control.invalid && (control.dirty || control.touched),
+    }"
+    >{{ labelText }}</label
+  >
+  <input
+    [id]="id"
+    [type]="type"
+    [formControl]="control"
+    [placeholder]="placeholder"
+    (blur)="control.markAsTouched()"
+  />
+  <div
+    *ngIf="control.invalid && (control.dirty || control.touched)"
+    class="error-messages"
+  >
+    <span *ngIf="control.errors?.['required']"
+      >{{ labelText }} es requerido.</span
+    >
+    <span *ngIf="control.errors?.['email']"
+      >Por favor ingresa un email válido.</span
+    >
+    <span *ngIf="control.errors?.['minlength']"
+      >Mínimo
+      {{ control.errors?.['minlength']?.requiredLength ?? 0 }} caracteres
+      requeridos.</span
+    >
+    <span *ngIf="control.errors?.['maxlength']"
+      >Máximo
+      {{ control.errors?.['maxlength']?.requiredLength ?? 0 }} caracteres
+      permitidos.</span
+    >
+  </div>
+</div>

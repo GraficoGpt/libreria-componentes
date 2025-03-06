@@ -1,0 +1,9 @@
+<button [attr.type]="typebtn" class="sdp-btn" [ngClass]="[size, type, customClass]" (click)="handleClick($event)">
+  @if (iconLeft) {
+    <img [src]="iconLeft" alt="Icon Left" class="icon-left" />
+  }
+  <span>{{buttontext}}</span>
+  @if (iconRight) {
+    <img [src]="iconRight" alt="Icon Right" class="icon-right" />
+  }
+</button>

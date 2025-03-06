@@ -1,0 +1,19 @@
+@if (isOpen) {
+  <div class="modal__overlay">
+    <div class="modal__box">
+      <div class="modal__header">
+        <h2>{{modalTitle}}</h2>
+          <div class="modal__header--close" tabindex="0" (click)="closeModal()" (keydown)="handleKeydown($event)" aria-label="Cerrar modal">
+            <img src="icons/close-icon.svg" alt="">
+          </div>
+      </div>
+      <div class="modal__content">
+        <p>Content text for the modal, we must give the user the actions to choose.</p>
+      </div>
+      <div class="modal__footer">
+        <app-button [buttontext]="'Secondary'" [type]="'sdp-btn--secondary'"></app-button>
+        <app-button [buttontext]="'Primary'"></app-button>
+      </div>
+    </div>
+  </div>
+}

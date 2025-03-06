@@ -1,0 +1,17 @@
+.sdp-heading {
+  padding: 0rem 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sdp-heading__title {
+  display: flex;
+  align-items: center;
+}
+
+.sdp-heading__title h1 {
+  font-size: var(--font-size-28);
+  font-weight: var(--font-weight-medium);
+}

@@ -1,0 +1,18 @@
+<section class="sdp-heading">
+  <div class="sdp-heading__box">
+    <div class="sdp-heading__title">
+      <img src="icons/back-icon.svg" alt="" />
+      <h1>{{ text }}</h1>
+    </div>
+    @if (breadcrumb) {
+      <div class="sdp-heading__breadcrumb">
+        <app-breadcrumb></app-breadcrumb>
+      </div>
+    }
+  </div>
+  @if (actionBtn) {
+    <div class="sdp-heading__action">
+      <app-button [buttontext]="'Action Button'"></app-button>
+    </div>
+  }
+</section>

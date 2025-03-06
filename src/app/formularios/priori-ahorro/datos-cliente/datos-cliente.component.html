@@ -1,0 +1,121 @@
+<div class="master-container">
+  <div class="main-wrapper">
+    <section class="head-page">
+      <app-title-page [text]="title"></app-title-page>
+      <app-stepper [steps]="stepperItems" [currentStep]="current"></app-stepper>
+    </section>
+    <main class="content-page">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-box">
+          <div class="title-form-section">
+            <h2>Agregar información del candidato</h2>
+          </div>
+          <div class="group-inputs-3">
+            <app-input
+              id="nombre"
+              labelText="Nombre"
+              type="text"
+              controlName="nombre"
+              [control]="getControl('nombre')"
+            >
+            </app-input>
+            <app-input
+              id="apellido"
+              labelText="Apellido"
+              type="text"
+              controlName="apellido"
+              [control]="getControl('apellido')"
+            >
+            </app-input>
+            <app-input
+              id="nacimiento"
+              labelText="Fecha de nacimiento"
+              type="date"
+              controlName="nacimiento"
+              [control]="getControl('nacimiento')"
+            >
+            </app-input>
+            <app-input
+              id="telefono"
+              labelText="Teléfono | Celular"
+              type="text"
+              controlName="telefono"
+              [control]="getControl('telefono')"
+            >
+            </app-input>
+            <app-input
+              id="email"
+              labelText="Correo electrónico"
+              type="email"
+              controlName="email"
+              [control]="getControl('email')"
+            >
+            </app-input>
+            <app-select
+              [label]="'Frecuencia de pago'"
+              [options]="optionsSelect"
+              [control]="getControl('frecuenciaPago')"
+            >
+            </app-select>
+          </div>
+          <div class="form-button-box">
+          </div>
+        </div>
+        <div class="form-box">
+          <div class="title-form-section">
+            <h2>Agregar información del candidato</h2>
+          </div>
+          <div class="group-inputs-3">
+            <app-input
+              id="nombre"
+              labelText="Nombre"
+              type="text"
+              controlName="nombre"
+              [control]="getControl('nombre')"
+              class="col-span-3"
+            >
+            </app-input>
+            <app-input
+              id="apellido"
+              labelText="Apellido"
+              type="text"
+              controlName="apellido"
+              [control]="getControl('apellido')"
+            >
+            </app-input>
+            <app-input
+              id="nacimiento"
+              labelText="Fecha de nacimiento"
+              type="date"
+              controlName="nacimiento"
+              [control]="getControl('nacimiento')"
+            >
+            </app-input>
+            <app-input
+              id="telefono"
+              labelText="Teléfono | Celular"
+              type="text"
+              controlName="telefono"
+              [control]="getControl('telefono')"
+            >
+            </app-input>
+            <app-input
+              id="email"
+              labelText="Correo electrónico"
+              type="email"
+              controlName="email"
+              [control]="getControl('email')"
+            >
+            </app-input>
+            <app-select
+              [label]="'Frecuencia de pago'"
+              [options]="optionsSelect"
+              [control]="getControl('frecuenciaPago')"
+            >
+            </app-select>
+          </div>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>

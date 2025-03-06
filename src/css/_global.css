@@ -1,0 +1,21 @@
+body {
+  background-color: var(--neutral-100);
+  font-family: var(--font-family);
+}
+
+.master-container {
+  margin-top: 2.5rem;
+}
+
+.main-wrapper {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.content-page {
+  padding: 2rem 1rem;
+}
+
+input:focus {
+  outline: 2px solid var(--primary-500);
+}

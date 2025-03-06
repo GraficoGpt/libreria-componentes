@@ -1,0 +1,102 @@
+.toast-container {
+  display: grid;
+  grid-template-columns: 24px 1fr 24px;
+  padding: 16px;
+  gap: 12px;
+  width: max-content;
+  border-radius: 8px;
+  min-width: 320px;
+}
+
+.toast__icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.toast__text h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.toast__text p {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.toast__actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 16px;
+}
+
+.toast__actions button {
+  padding: 8px 2px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Info Styles */
+.info {
+  background-color: var(--info-50);
+  border: 1px solid var(--info-500);
+}
+
+.info .toast__text h2,
+.info .toast__text p,
+.info .toast__actions button {
+  color: var(--info-700);
+}
+
+.info .toast__close svg {
+  stroke: var(--info-700);
+}
+
+/* Warning styles */
+.warning {
+  background-color: var(--warning-50);
+  border: 1px solid var(--warning-500);
+}
+
+.warning .toast__text h2,
+.warning .toast__text p,
+.warning .toast__actions button {
+  color: var(--warning-700);
+}
+
+.warning .toast__close svg {
+  stroke: var(--warning-700);
+}
+
+/* Error Styles */
+
+.error {
+  background-color: var(--error-50);
+  border: 1px solid var(--error-500);
+}
+
+.error .toast__text h2,
+.error .toast__text p,
+.error .toast__actions button {
+  color: var(--error-700);
+}
+
+.error .toast__close svg {
+  stroke: var(--error-700);
+}
+
+/* success styles */
+
+.success {
+  background-color: var(--success-50);
+  border: 1px solid var(--success-500);
+}
+
+.success .toast__text h2,
+.success .toast__text p,
+.success .toast__actions button {
+  color: var(--success-700);
+}
+
+.success .toast__close svg {
+  stroke: var(--success-700);
+}

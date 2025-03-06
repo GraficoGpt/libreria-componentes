@@ -1,0 +1,61 @@
+.input-text-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.input-text-group label {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 0.25rem;
+}
+
+.input-text-group input {
+  height: 3.5rem;
+  padding: 1rem;
+  background-color: var(--neutral-white);
+  border: 1px solid var(--neutral-300);
+  border-radius: 1rem;
+  max-width: 300px;
+}
+
+.input-text-group input:active {
+  border: 2px solid var(--primary-500);
+}
+
+.error-label {
+  color: var(--error-600);
+}
+
+
+.error-messages {
+  height: 1.5rem;
+  color: var(--error-600);
+  font-size: 16px;
+  margin-top: 4px;
+}
+
+/* States */
+.active label {
+  color: var(--primary-500);
+}
+
+.active input {
+  border: 2px solid var(--primary-500);
+}
+
+.error label {
+  color: var(--error-600);
+}
+
+.error input {
+  border: 2px solid var(--error-600);
+}
+
+.disabled label:disabled {
+  color: var(--neutral-100);
+}
+
+.disabled input:disabled {
+  background-color: var(--neutral-100);
+}

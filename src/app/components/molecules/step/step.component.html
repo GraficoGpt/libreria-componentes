@@ -1,0 +1,36 @@
+<div class="step-box">
+  <div
+    class="step-bar"
+    [ngClass]="{
+      completed: completed,
+      active: active,
+      inactive: !active && !completed,
+    }"
+  >
+    <div class="step-circle">
+      <ng-container *ngIf="completed; else notCompleted">
+        <div class="circle circle-img">
+          <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_539_11308)">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.1062 6.31064C21.6006 6.75169 21.634 7.49927 21.1808 7.98041L11.163 18.6168C10.933 18.861 10.6082 19 10.2679 19C9.92749 19 9.60274 18.861 9.37274 18.6168L4.81918 13.7821C4.36602 13.3009 4.39941 12.5533 4.89377 12.1123C5.38813 11.6712 6.15624 11.7038 6.60941 12.1849L10.2679 16.0692L19.3906 6.38324C19.8438 5.9021 20.6119 5.8696 21.1062 6.31064Z" fill="white"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_539_11308">
+            <rect width="24" height="24" fill="white" transform="translate(0.5 0.000488281)"/>
+            </clipPath>
+            </defs>
+            </svg>
+        </div>
+      </ng-container>
+      <ng-template #notCompleted>
+        <div class="circle">
+          <p>{{ number }}</p>
+        </div>
+      </ng-template>
+    </div>
+    <div class="step-text">
+      <p>{{ title }}</p>
+      <small>{{ subtitle }}</small>
+    </div>
+  </div>
+</div>

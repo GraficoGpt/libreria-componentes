@@ -1,0 +1,99 @@
+:host {
+  flex: 1;
+}
+
+:host:first-child .step-bar::before {
+  display: none;
+}
+
+:host:last-child .step-bar::after {
+  display: none;
+}
+
+.step-box {
+  position: relative;
+}
+.step-bar::before{
+    background-color: var(--primary-100);
+    content: "";
+    height: 2px;
+    position: absolute;
+    width: 50%;
+    top: 30%;
+    z-index: -1;
+}
+
+.step-bar::after{
+  background-color: var(--primary-100);
+  content: "";
+  height: 2px;
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  top: 30%;
+  z-index: -2;
+}
+
+.step-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+.circle {
+  background-color: var(--primary-500);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  line-height: 1.8;
+  color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--primary-500);
+}
+
+.circle p {
+  font-weight: 700;
+}
+
+.circle-img {
+  line-height: 0;
+  padding-top: .4rem;
+}
+
+.step-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: .5rem;
+}
+.step-text p {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.active::after, .active::before {
+  background-color: var(--primary-500);
+}
+
+.active .step-circle .circle {
+  background-color: var(--primary-500)
+}
+
+.completed::after, .completed::before {
+  background-color: var(--primary-500);
+}
+
+.inactive .step-circle .circle {
+  background-color: var(--white);
+}
+.inactive .step-circle .circle p {
+  color: var(--primary-500);
+}
+
+
+

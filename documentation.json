@@ -1,0 +1,2235 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "User",
+            "id": "interface-User-4f46985e1041128bef23474d476995ac223003f0b4f6294be3fd7a8095e16619e0b3f540a75a6c9e9786ea16290b08dd5c1053e87ed1ebd2120fd8678b159d06",
+            "file": "src/app/components/templates/forms/forms.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface User {\r\n  name: string;\r\n  email: string;\r\n}\r\n\r\nimport { Component } from '@angular/core';\r\nimport { TitlePageComponent } from '../../organisms/title-page/title-page.component';\r\nimport { NgIf } from '@angular/common';\r\nimport { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'app-forms',\r\n  standalone: true,\r\n  imports: [TitlePageComponent, ReactiveFormsModule, NgIf],\r\n  templateUrl: './forms.component.html',\r\n  styleUrl: './forms.component.css',\r\n})\r\nexport class FormsComponent {\r\n  form: FormGroup;\r\n  data: User[] = [];\r\n\r\n  constructor(private fb: FormBuilder) {\r\n    this.form = this.fb.group({\r\n      name: [''],\r\n      email: [''],\r\n    });\r\n  }\r\n\r\n  onSubmit() {\r\n    if (this.form.valid) {\r\n      this.data.push({\r\n        name: this.form.value.name,\r\n        email: this.form.value.email,\r\n      });\r\n      localStorage.setItem('users', JSON.stringify(this.data));\r\n      console.log('Variable' + this.data);\r\n      console.log('LocalStorage' + localStorage.getItem('users'));\r\n    }\r\n    this.form.reset();\r\n  }\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "email",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        }
+    ],
+    "injectables": [],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-8dd6676fe4bfdaf915c3909c689e8cbaeeab9fa8cbe124ba325e58c19de10201419d47e0d8ef97512f04a2a60b3027c0db0911537552e0955c5b977bc67a83c1",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'test-project'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "RouterOutlet"
+                },
+                {
+                    "name": "HeaderComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { RouterOutlet } from '@angular/router';\r\nimport { HeaderComponent } from './components/organisms/header/header.component';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  standalone: true,\r\n  imports: [RouterOutlet, HeaderComponent],\r\n  templateUrl: './app.component.html',\r\n  styleUrl: './app.component.css',\r\n})\r\nexport class AppComponent {\r\n  title = 'test-project';\r\n}\r\n",
+            "styleUrl": "./app.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<app-header></app-header>\r\n<router-outlet></router-outlet>\r\n"
+        },
+        {
+            "name": "BreadcrumbComponent",
+            "id": "component-BreadcrumbComponent-ccf587329d0704ea7c4ab7ad645bf3a12e8f5878be23ee9bf0d8f24a12e4ca1a37a3ed4347f40ba72ab3d1e5c3c9d31c30716733830cebcfcb0506b90fe61a15",
+            "file": "src/app/components/molecules/breadcrumb/breadcrumb.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-breadcrumb",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./breadcrumb.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-breadcrumb',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './breadcrumb.component.html',\r\n  styleUrl: './breadcrumb.component.css',\r\n})\r\nexport class BreadcrumbComponent {}\r\n",
+            "styleUrl": "./breadcrumb.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<nav class=\"breadcrumb\">\r\n  <ul>\r\n    <li>\r\n      <a href=\"/\"><img src=\"icons/home-bread.svg\" alt=\"\" /></a>\r\n    </li>\r\n    <li><a href=\"/\">Productos</a></li>\r\n    <li><span>Priori ahorro</span></li>\r\n  </ul>\r\n</nav>\r\n"
+        },
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-ab3068dbc3debe901147b0d213f11bb1f14358e7658195074f487375fc8529fcdb5df18e4c7bdce84510be45de5c078d52d4a857d3e5e28439d572f9203c6cf7",
+            "file": "src/app/components/atoms/button/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-button",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "buttontext",
+                    "defaultValue": "\"Button\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "customClass",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "iconLeft",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "iconRight",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'sdp-btn--medium'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "\"sdp-btn--small\" | \"sdp-btn--medium\" | \"sdp-btn--large\"",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'sdp-btn--primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "\"sdp-btn--primary\" | \"sdp-btn--secondary\" | \"sdp-btn--text\"",
+                    "decorators": []
+                },
+                {
+                    "name": "typebtn",
+                    "defaultValue": "'button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "\"submit\" | \"button\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "EventEmitter<Event>"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "handleClick",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgClass"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\nimport { NgClass } from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'app-button',\r\n  standalone: true,\r\n  imports: [NgClass],\r\n  templateUrl: './button.component.html',\r\n  styleUrl: './button.component.css',\r\n})\r\nexport class ButtonComponent {\r\n  @Input() size: 'sdp-btn--small' | 'sdp-btn--medium' | 'sdp-btn--large' = 'sdp-btn--medium';\r\n  @Input() type: 'sdp-btn--primary' | 'sdp-btn--secondary' | 'sdp-btn--text' = 'sdp-btn--primary';\r\n  @Input() typebtn: 'submit' | 'button' = 'button';\r\n  @Input() buttontext?: string = \"Button\";\r\n  @Input() iconLeft?: string;\r\n  @Input() iconRight?: string;\r\n  @Input() customClass?: string = '';\r\n\r\n  // Definir la propiedad de salida para el evento click\r\n  // eslint-disable-next-line @angular-eslint/no-output-on-prefix\r\n  @Output() onClick: EventEmitter<Event> = new EventEmitter<Event>();\r\n\r\n  // Método para manejar el clic y emitir el evento\r\n  handleClick(event: Event): void {\r\n    this.onClick.emit(event);\r\n  }\r\n}\r\n\r\n\r\n",
+            "styleUrl": "./button.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<button [attr.type]=\"typebtn\" class=\"sdp-btn\" [ngClass]=\"[size, type, customClass]\" (click)=\"handleClick($event)\">\r\n  @if (iconLeft) {\r\n    <img [src]=\"iconLeft\" alt=\"Icon Left\" class=\"icon-left\" />\r\n  }\r\n  <span>{{buttontext}}</span>\r\n  @if (iconRight) {\r\n    <img [src]=\"iconRight\" alt=\"Icon Right\" class=\"icon-right\" />\r\n  }\r\n</button>\r\n"
+        },
+        {
+            "name": "CardComponent",
+            "id": "component-CardComponent-158ca5bcdd78b1f633039076ce1947f7e72369ca93d2c64ba9f0b44913716dbb6397412e6366271327c50ebe21e856ff093a06dbc8ef4d5c8a106b4c42bb2c63",
+            "file": "src/app/components/molecules/card/card.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-card",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./card.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "cardBody",
+                    "defaultValue": "\"Card Description\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "cardButtonText",
+                    "defaultValue": "\"Button\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "cardImage",
+                    "defaultValue": "\"icons/happy.svg\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "cardTitle",
+                    "defaultValue": "\"Card Title\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "cardType",
+                    "defaultValue": "\"sdp-card-primary\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "\"sdp-card-primary\" | \"sdp-card-secondary\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "NgClass"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { ButtonComponent } from \"../../atoms/button/button.component\";\r\nimport { NgClass } from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'app-card',\r\n  standalone: true,\r\n  imports: [ButtonComponent, NgClass],\r\n  templateUrl: './card.component.html',\r\n  styleUrl: './card.component.css'\r\n})\r\nexport class CardComponent {\r\n  @Input() cardImage = \"icons/happy.svg\";\r\n  @Input() cardTitle = \"Card Title\";\r\n  @Input() cardBody = \"Card Description\";\r\n  @Input() cardButtonText = \"Button\";\r\n  @Input() cardType: \"sdp-card-primary\" | \"sdp-card-secondary\" = \"sdp-card-primary\";\r\n}\r\n\r\n",
+            "styleUrl": "./card.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"sdp-card\">\r\n  <div class=\"sdp-card-box\" [ngClass]=\"[cardType]\">\r\n    <div class=\"sdp-card-image\">\r\n      <img [src]=\"cardImage\" alt=\"\">\r\n    </div>\r\n    <div class=\"sdp-card-text\">\r\n      <div class=\"sdp-card-title\">\r\n        <h3>{{cardTitle}}</h3>\r\n      </div>\r\n      <div class=\"sdp-card-body\">\r\n        <p>{{cardBody}}</p>\r\n      </div>\r\n    </div>\r\n    <div class=\"sdp-card-btn\">\r\n      <app-button\r\n      >Botón</app-button>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "ChipsComponent",
+            "id": "component-ChipsComponent-8c75b533aaabcd1dad99f5ada7f52877738e2b384388df5be8afd4378632ded2505114ae7f89a2d069cf0e4bb1dff98adb676cb964de67df736d221c300bc56e",
+            "file": "src/app/components/molecules/chips/chips.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-chips",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./chips.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "chipIcon",
+                    "defaultValue": "'icons/happy.svg'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "chipState",
+                    "defaultValue": "'enabled'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "\"enabled\" | \"active\" | \"disabled\"",
+                    "decorators": []
+                },
+                {
+                    "name": "chipText",
+                    "defaultValue": "'Chip'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "isActive",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "handleKeyDown",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "KeyboardEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "KeyboardEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "toggleActive",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgClass"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { NgClass } from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'app-chips',\r\n  standalone: true,\r\n  imports: [NgClass],\r\n  templateUrl: './chips.component.html',\r\n  styleUrl: './chips.component.css'\r\n})\r\nexport class ChipsComponent {\r\n  @Input() chipState: 'enabled' | 'active' | 'disabled' = 'enabled';\r\n  @Input() chipText = 'Chip';\r\n  @Input() chipIcon = 'icons/happy.svg';\r\n  isActive = false;\r\n\r\n  toggleActive() {\r\n    this.isActive = !this.isActive;\r\n    this.chipState = this.isActive ? 'active' : 'enabled';\r\n  }\r\n  handleKeyDown(event: KeyboardEvent) {\r\n    if (event.key === 'Enter' || event.key === ' ') {\r\n      this.toggleActive();\r\n      event.preventDefault();\r\n    }\r\n  }\r\n}\r\n",
+            "styleUrl": "./chips.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<button class=\"sdp-chip\" [ngClass]=\"chipState\" (click)=\"toggleActive()\" (keydown)=\"handleKeyDown($event)\" tabindex=\"0\">\r\n  <div class=\"sdp-chip-icon\">\r\n    <img class=\"sdp-chip-icon__filter\" [src]=\"chipIcon\" alt=\"\">\r\n  </div>\r\n  <div class=\"sdp-chip-text\">\r\n    <p>{{chipText}}</p>\r\n  </div>\r\n</button>\r\n"
+        },
+        {
+            "name": "CompletadoComponent",
+            "id": "component-CompletadoComponent-0d9977b36804db0fec9c8a37305ef965e13193b796b9738e7d5303594c1f5f78bf04d1695378ac87eb5d3e9db0cc98a85184d9d0a5e2f94de14ae19090bf8b99",
+            "file": "src/app/formularios/priori-ahorro/completado/completado.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-completado",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./completado.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-completado',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './completado.component.html',\r\n  styleUrl: './completado.component.css',\r\n})\r\nexport class CompletadoComponent {}\r\n",
+            "styleUrl": "./completado.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>completado works!</p>\r\n"
+        },
+        {
+            "name": "DatosClienteComponent",
+            "id": "component-DatosClienteComponent-0563f54fd60e08744732522a02c7866fcef4a20a284cdda4ec3e9131df29acbfda3a02d3ff0e234e1f79df186fcb593ff69884e636d53354563ed9090654674f",
+            "file": "src/app/formularios/priori-ahorro/datos-cliente/datos-cliente.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-datos-cliente",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./datos-cliente.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "clienteForm",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 43
+                },
+                {
+                    "name": "current",
+                    "defaultValue": "2",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 41
+                },
+                {
+                    "name": "optionsSelect",
+                    "defaultValue": "[\r\n    { label: 'Opción 1', value: '1' },\r\n    { label: 'Opción 2', value: '2' },\r\n    { label: 'Opción 3', value: '3' },\r\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 113
+                },
+                {
+                    "name": "stepperItems",
+                    "defaultValue": "[\r\n    { title: 'Candidato', subtitle: '' },\r\n    { title: 'Producto', subtitle: '' },\r\n    { title: 'Completado', subtitle: '' },\r\n\r\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 35
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "'Candidato'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "getControl",
+                    "args": [
+                        {
+                            "name": "controlName",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "FormControl",
+                    "typeParameters": [],
+                    "line": 56,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "controlName",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getFormValidationErrors",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "{}",
+                    "typeParameters": [],
+                    "line": 96,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 64,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "TitlePageComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "StepperComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "InputComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "SelectComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { TitlePageComponent } from '../../../components/organisms/title-page/title-page.component';\r\nimport { StepperComponent } from '../../../components/organisms/stepper/stepper.component';\r\nimport { InputComponent } from '../../../components/atoms/input/input.component';\r\nimport {\r\n  FormBuilder,\r\n  FormGroup,\r\n  Validators,\r\n  ReactiveFormsModule,\r\n  FormControl,\r\n} from '@angular/forms';\r\nimport { CommonModule } from '@angular/common';\r\nimport { SelectComponent } from '../../../components/atoms/select/select.component';\r\nimport { ButtonComponent } from \"../../../components/atoms/button/button.component\";\r\n\r\n@Component({\r\n  selector: 'app-datos-cliente',\r\n  standalone: true,\r\n  imports: [\r\n    CommonModule,\r\n    ReactiveFormsModule,\r\n    TitlePageComponent,\r\n    StepperComponent,\r\n    InputComponent,\r\n    SelectComponent,\r\n    ButtonComponent\r\n],\r\n  templateUrl: './datos-cliente.component.html',\r\n  styleUrl: './datos-cliente.component.css',\r\n})\r\nexport class DatosClienteComponent {\r\n  // Título de la página\r\n  title = 'Candidato';\r\n  // Stepper\r\n  stepperItems = [\r\n    { title: 'Candidato', subtitle: '' },\r\n    { title: 'Producto', subtitle: '' },\r\n    { title: 'Completado', subtitle: '' },\r\n\r\n  ];\r\n  current = 2;\r\n  // Formulario\r\n  clienteForm: FormGroup;\r\n\r\n  constructor(private fb: FormBuilder) {\r\n    this.clienteForm = this.fb.group({\r\n      nombre: ['', Validators.required],\r\n      apellido: ['', Validators.required],\r\n      telefono: ['', Validators.required],\r\n      nacimiento: ['', Validators.required],\r\n      email: ['', [Validators.required, Validators.email]],\r\n      frecuenciaPago: ['', Validators.required],\r\n    });\r\n  }\r\n\r\n  getControl(controlName: string): FormControl {\r\n    const control = this.clienteForm.get(controlName);\r\n    if (control instanceof FormControl) {\r\n      return control;\r\n    }\r\n    throw new Error(`Control ${controlName} is not a FormControl`);\r\n  }\r\n\r\n  onSubmit() {\r\n    if (this.clienteForm.valid) {\r\n      // Obtener los datos existentes en el localStorage\r\n      const storedData = localStorage.getItem('datosCliente');\r\n\r\n      // Inicializar datosClientes como un array vacío si storedData es null\r\n      let datosClientes: any[] = storedData ? JSON.parse(storedData) : [];\r\n\r\n      // Verificar si datosClientes es un array\r\n      if (!Array.isArray(datosClientes)) {\r\n        datosClientes = []; // Reinicializar si los datos no son un array válido\r\n      }\r\n\r\n      // Agregar los nuevos datos al array\r\n      datosClientes.push(this.clienteForm.value);\r\n\r\n      // Guardar el array actualizado en el localStorage\r\n      localStorage.setItem('datosCliente', JSON.stringify(datosClientes));\r\n\r\n      // Confirmación de éxito en la consola\r\n      console.log('Formulario enviado con éxito:', this.clienteForm.value);\r\n\r\n      // Notificación al usuario\r\n      alert('Datos guardados correctamente');\r\n    } else {\r\n      console.error('Error: Formulario no es válido');\r\n      console.table(this.getFormValidationErrors());\r\n    }\r\n\r\n    // Restablecer el formulario\r\n    this.clienteForm.reset();\r\n  }\r\n  getFormValidationErrors() {\r\n    const errors: unknown[] = [];\r\n    Object.keys(this.clienteForm.controls).forEach((key) => {\r\n      const controlErrors = this.clienteForm.get(key)?.errors;\r\n      if (controlErrors) {\r\n        Object.keys(controlErrors).forEach((keyError) => {\r\n          errors.push({\r\n            control: key,\r\n            error: keyError,\r\n            value: controlErrors[keyError],\r\n          });\r\n        });\r\n      }\r\n    });\r\n    return errors;\r\n  }\r\n\r\n  optionsSelect = [\r\n    { label: 'Opción 1', value: '1' },\r\n    { label: 'Opción 2', value: '2' },\r\n    { label: 'Opción 3', value: '3' },\r\n  ];\r\n}\r\n",
+            "styleUrl": "./datos-cliente.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 43,
+                "jsdoctags": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "templateData": "<div class=\"master-container\">\r\n  <div class=\"main-wrapper\">\r\n    <section class=\"head-page\">\r\n      <app-title-page [text]=\"title\"></app-title-page>\r\n      <app-stepper [steps]=\"stepperItems\" [currentStep]=\"current\"></app-stepper>\r\n    </section>\r\n    <main class=\"content-page\">\r\n      <form (ngSubmit)=\"onSubmit()\">\r\n        <div class=\"form-box\">\r\n          <div class=\"title-form-section\">\r\n            <h2>Agregar información del candidato</h2>\r\n          </div>\r\n          <div class=\"group-inputs-3\">\r\n            <app-input\r\n              id=\"nombre\"\r\n              labelText=\"Nombre\"\r\n              type=\"text\"\r\n              controlName=\"nombre\"\r\n              [control]=\"getControl('nombre')\"\r\n            >\r\n            </app-input>\r\n            <app-input\r\n              id=\"apellido\"\r\n              labelText=\"Apellido\"\r\n              type=\"text\"\r\n              controlName=\"apellido\"\r\n              [control]=\"getControl('apellido')\"\r\n            >\r\n            </app-input>\r\n            <app-input\r\n              id=\"nacimiento\"\r\n              labelText=\"Fecha de nacimiento\"\r\n              type=\"date\"\r\n              controlName=\"nacimiento\"\r\n              [control]=\"getControl('nacimiento')\"\r\n            >\r\n            </app-input>\r\n            <app-input\r\n              id=\"telefono\"\r\n              labelText=\"Teléfono | Celular\"\r\n              type=\"text\"\r\n              controlName=\"telefono\"\r\n              [control]=\"getControl('telefono')\"\r\n            >\r\n            </app-input>\r\n            <app-input\r\n              id=\"email\"\r\n              labelText=\"Correo electrónico\"\r\n              type=\"email\"\r\n              controlName=\"email\"\r\n              [control]=\"getControl('email')\"\r\n            >\r\n            </app-input>\r\n            <app-select\r\n              [label]=\"'Frecuencia de pago'\"\r\n              [options]=\"optionsSelect\"\r\n              [control]=\"getControl('frecuenciaPago')\"\r\n            >\r\n            </app-select>\r\n          </div>\r\n          <div class=\"form-button-box\">\r\n          </div>\r\n        </div>\r\n        <div class=\"form-box\">\r\n          <div class=\"title-form-section\">\r\n            <h2>Agregar información del candidato</h2>\r\n          </div>\r\n          <div class=\"group-inputs-3\">\r\n            <app-input\r\n              id=\"nombre\"\r\n              labelText=\"Nombre\"\r\n              type=\"text\"\r\n              controlName=\"nombre\"\r\n              [control]=\"getControl('nombre')\"\r\n              class=\"col-span-3\"\r\n            >\r\n            </app-input>\r\n            <app-input\r\n              id=\"apellido\"\r\n              labelText=\"Apellido\"\r\n              type=\"text\"\r\n              controlName=\"apellido\"\r\n              [control]=\"getControl('apellido')\"\r\n            >\r\n            </app-input>\r\n            <app-input\r\n              id=\"nacimiento\"\r\n              labelText=\"Fecha de nacimiento\"\r\n              type=\"date\"\r\n              controlName=\"nacimiento\"\r\n              [control]=\"getControl('nacimiento')\"\r\n            >\r\n            </app-input>\r\n            <app-input\r\n              id=\"telefono\"\r\n              labelText=\"Teléfono | Celular\"\r\n              type=\"text\"\r\n              controlName=\"telefono\"\r\n              [control]=\"getControl('telefono')\"\r\n            >\r\n            </app-input>\r\n            <app-input\r\n              id=\"email\"\r\n              labelText=\"Correo electrónico\"\r\n              type=\"email\"\r\n              controlName=\"email\"\r\n              [control]=\"getControl('email')\"\r\n            >\r\n            </app-input>\r\n            <app-select\r\n              [label]=\"'Frecuencia de pago'\"\r\n              [options]=\"optionsSelect\"\r\n              [control]=\"getControl('frecuenciaPago')\"\r\n            >\r\n            </app-select>\r\n          </div>\r\n        </div>\r\n      </form>\r\n    </main>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "DatosPlanComponent",
+            "id": "component-DatosPlanComponent-d63894eaa2e7f02ba98f2eb6c8f855722511878ca2c2c28e66d10056d235251ad17a0c063086b31e0cfe4a97da66f5e180262cc870922113eea04b5ce4fd45e1",
+            "file": "src/app/formularios/priori-ahorro/datos-plan/datos-plan.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-datos-plan",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./datos-plan.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-datos-plan',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './datos-plan.component.html',\r\n  styleUrl: './datos-plan.component.css',\r\n})\r\nexport class DatosPlanComponent {}\r\n",
+            "styleUrl": "./datos-plan.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>datos-plan works!</p>\r\n"
+        },
+        {
+            "name": "EmptyStateComponent",
+            "id": "component-EmptyStateComponent-e633eba8fc635c7bceb96acadd2e53ee410ffa3ff1d14f2e11968cede2a98494f06bc11d94e1509e58ba605a2cfc748c2f89b2295a58d721e926e87f674953f4",
+            "file": "src/app/components/organisms/empty-state/empty-state.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-empty-state",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./empty-state.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "description",
+                    "defaultValue": "\"Empty status feedback text, we have to tell the user what action to take.\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "icon",
+                    "defaultValue": "\"icons/happy.svg\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "\"Empty State title\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { ButtonComponent } from \"../../atoms/button/button.component\";\r\n\r\n@Component({\r\n  selector: 'app-empty-state',\r\n  standalone: true,\r\n  imports: [ButtonComponent],\r\n  templateUrl: './empty-state.component.html',\r\n  styleUrl: './empty-state.component.css'\r\n})\r\nexport class EmptyStateComponent {\r\n@Input() icon = \"icons/happy.svg\";\r\n@Input() title = \"Empty State title\";\r\n@Input() description = \"Empty status feedback text, we have to tell the user what action to take.\";\r\n\r\n}\r\n",
+            "styleUrl": "./empty-state.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"sdp-empty-state\">\r\n  <div class=\"sdp-empty-state__icon\">\r\n    <div class=\"sdp-empty-state__icon_box\">\r\n      <img src=\"{{ icon }}\" alt=\"Empty state icon\" />\r\n    </div>\r\n  </div>\r\n  <div class=\"sdp-empty-state__title\">{{ title }}</div>\r\n  <div class=\"sdp-empty-state__description\">{{ description }}</div>\r\n  <div class=\"sdp-empty-state__action\">\r\n    <app-button [buttontext]=\"'LabelButton'\"></app-button>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "FooterComponent",
+            "id": "component-FooterComponent-e4a14d64e7817eb53fb4a63f1e578ea505efd50c54e6ba81730d8e17c60f00c51c4a52d24d0bf1346fccfb8fc5ebb7f085d6839823d4292d94b4f0d114830a62",
+            "file": "src/app/components/organisms/footer/footer.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-footer",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./footer.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-footer',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './footer.component.html',\r\n  styleUrl: './footer.component.css',\r\n})\r\nexport class FooterComponent {}\r\n",
+            "styleUrl": "./footer.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>footer works!</p>\r\n"
+        },
+        {
+            "name": "FormsComponent",
+            "id": "component-FormsComponent-4f46985e1041128bef23474d476995ac223003f0b4f6294be3fd7a8095e16619e0b3f540a75a6c9e9786ea16290b08dd5c1053e87ed1ebd2120fd8678b159d06",
+            "file": "src/app/components/templates/forms/forms.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-forms",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./forms.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "data",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "User[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                },
+                {
+                    "name": "form",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onSubmit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 29,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "TitlePageComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "NgIf"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "export interface User {\r\n  name: string;\r\n  email: string;\r\n}\r\n\r\nimport { Component } from '@angular/core';\r\nimport { TitlePageComponent } from '../../organisms/title-page/title-page.component';\r\nimport { NgIf } from '@angular/common';\r\nimport { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'app-forms',\r\n  standalone: true,\r\n  imports: [TitlePageComponent, ReactiveFormsModule, NgIf],\r\n  templateUrl: './forms.component.html',\r\n  styleUrl: './forms.component.css',\r\n})\r\nexport class FormsComponent {\r\n  form: FormGroup;\r\n  data: User[] = [];\r\n\r\n  constructor(private fb: FormBuilder) {\r\n    this.form = this.fb.group({\r\n      name: [''],\r\n      email: [''],\r\n    });\r\n  }\r\n\r\n  onSubmit() {\r\n    if (this.form.valid) {\r\n      this.data.push({\r\n        name: this.form.value.name,\r\n        email: this.form.value.email,\r\n      });\r\n      localStorage.setItem('users', JSON.stringify(this.data));\r\n      console.log('Variable' + this.data);\r\n      console.log('LocalStorage' + localStorage.getItem('users'));\r\n    }\r\n    this.form.reset();\r\n  }\r\n}\r\n",
+            "styleUrl": "./forms.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "fb",
+                        "type": "FormBuilder",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "extends": [],
+            "templateData": "<div class=\"master-container\">\r\n  <div class=\"main-wrapper\">\r\n    <section class=\"head-page\">\r\n      <app-title-page [text]=\"'Hola mundo'\"></app-title-page>\r\n    </section>\r\n    <main class=\"content-page\">\r\n      <form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">\r\n        <div>\r\n          <label for=\"name\">Nombre:</label>\r\n          <input type=\"text\" id=\"name\" formControlName=\"name\" />\r\n        </div>\r\n        <div>\r\n          <label for=\"email\">Email:</label>\r\n          <input type=\"email\" id=\"email\" formControlName=\"email\" />\r\n        </div>\r\n        <button type=\"submit\" [disabled]=\"form.invalid\">Submit</button>\r\n      </form>\r\n    </main>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "HeaderComponent",
+            "id": "component-HeaderComponent-7d4353cf72205c8ee99107d7cc73f265d4dee29b3de950e33b876e3a00622d7c1a1c2e308964a17269e6d7bd042e623ff22bc4d3c7dc78c92e48e0c4089b279d",
+            "file": "src/app/components/organisms/header/header.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-header",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./header.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-header',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './header.component.html',\r\n  styleUrl: './header.component.css',\r\n})\r\nexport class HeaderComponent {}\r\n",
+            "styleUrl": "./header.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<header>\r\n  <div class=\"logo-box\">\r\n    <svg\r\n      width=\"40\"\r\n      height=\"40\"\r\n      viewBox=\"0 0 40 40\"\r\n      fill=\"none\"\r\n      xmlns=\"http://www.w3.org/2000/svg\"\r\n    >\r\n      <path\r\n        d=\"M1.48678 16.3046L15.9164 1.52305C17.8988 -0.507682 21.1488 -0.507682 23.1312 1.52305L25.8492 4.30728L4.20473 26.4796L1.48678 23.6954C-0.495594 21.6647 -0.495594 18.3353 1.48678 16.3046ZM37.5608 23.6954L23.1312 38.477C21.1488 40.5077 17.8988 40.5077 15.9164 38.477L13.1985 35.6927L29.4331 19.0621L27.8889 17.4803L27.6542 17.2398L27.4142 17.4856L7.72084 37.6647L2.28495 32.0962L24.3832 9.45892C26.1778 7.62057 29.0836 7.62057 30.8781 9.45892L37.5608 16.31C39.5432 18.3407 39.5432 21.67 37.5608 23.7007\"\r\n        fill=\"white\"\r\n      />\r\n    </svg>\r\n  </div>\r\n</header>\r\n"
+        },
+        {
+            "name": "HeadingComponent",
+            "id": "component-HeadingComponent-039f9809aa5bd915f70786c34e6f24b4ee9aa51baff74e8c716d28729feae7a83fc01d39d666caf9f2d6b05dbb069ebbc57bbe03c913007ccc3fe7538aec979a",
+            "file": "src/app/components/organisms/heading/heading.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-heading",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./heading.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "actionBtn",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "breadcrumb",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "text",
+                    "defaultValue": "'Título de la página'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "BreadcrumbComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { BreadcrumbComponent } from '../../molecules/breadcrumb/breadcrumb.component';\r\nimport { ButtonComponent } from \"../../atoms/button/button.component\";\r\n\r\n\r\n@Component({\r\n  selector: 'app-heading',\r\n  standalone: true,\r\n  imports: [BreadcrumbComponent, ButtonComponent],\r\n  templateUrl: './heading.component.html',\r\n  styleUrl: './heading.component.css'\r\n})\r\nexport class HeadingComponent {\r\n  @Input() text = 'Título de la página';\r\n  @Input() breadcrumb = true;\r\n  @Input() actionBtn = true;\r\n}\r\n",
+            "styleUrl": "./heading.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<section class=\"sdp-heading\">\r\n  <div class=\"sdp-heading__box\">\r\n    <div class=\"sdp-heading__title\">\r\n      <img src=\"icons/back-icon.svg\" alt=\"\" />\r\n      <h1>{{ text }}</h1>\r\n    </div>\r\n    @if (breadcrumb) {\r\n      <div class=\"sdp-heading__breadcrumb\">\r\n        <app-breadcrumb></app-breadcrumb>\r\n      </div>\r\n    }\r\n  </div>\r\n  @if (actionBtn) {\r\n    <div class=\"sdp-heading__action\">\r\n      <app-button [buttontext]=\"'Action Button'\"></app-button>\r\n    </div>\r\n  }\r\n</section>\r\n"
+        },
+        {
+            "name": "HomeComponent",
+            "id": "component-HomeComponent-3dd866ec2783fdaa07bd46f645042c2fe7a2cf18eae5c03707c75d87accac6bf5517e087210c4a343f5bfb8c4f22a79b976cb7a92acdb4ee0f88b08ea8c32349",
+            "file": "src/app/components/templates/home/home.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-home",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./home.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "HeadingComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ToastComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { HeadingComponent } from \"../../organisms/heading/heading.component\";\r\nimport { ToastComponent } from \"../../organisms/toast/toast.component\";\r\n\r\n@Component({\r\n  selector: 'app-home',\r\n  standalone: true,\r\n  imports: [\r\n    HeadingComponent,\r\n    ToastComponent\r\n],\r\n  templateUrl: './home.component.html',\r\n  styleUrl: './home.component.css',\r\n})\r\nexport class HomeComponent {\r\n}\r\n",
+            "styleUrl": "./home.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"master-container\">\r\n  <div class=\"main-wrapper\">\r\n    <section class=\"head-page\">\r\n      <app-heading> </app-heading>\r\n    </section>\r\n    <main class=\"content-page\">\r\n      <app-toast [type]=\"'info'\"></app-toast>\r\n      <app-toast [type]=\"'warning'\"></app-toast>\r\n      <app-toast [type]=\"'error'\"></app-toast>\r\n      <app-toast [type]=\"'success'\"></app-toast>\r\n    </main>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "InputComponent",
+            "id": "component-InputComponent-fdb9ba7018ebc788825267466f74a4a40e60aa0e0ba2e9d21a6a22368fb3117799f63339da51be8fd7ad134f248ede2ab379ab1e46f4571ed1ace54b412a21a0",
+            "file": "src/app/components/atoms/input/input.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-input",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "control",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "FormControl",
+                    "decorators": []
+                },
+                {
+                    "name": "controlName",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "labelText",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "defaultValue": "'Placeholder'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\nimport { FormControl, ReactiveFormsModule } from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'app-input',\r\n  standalone: true,\r\n  imports: [CommonModule, ReactiveFormsModule],\r\n  templateUrl: './input.component.html',\r\n  styleUrl: './input.component.css',\r\n})\r\nexport class InputComponent {\r\n  @Input() id!: string;\r\n  @Input() labelText!: string;\r\n  @Input() type = 'text';\r\n  @Input() controlName!: string;\r\n  @Input() control!: FormControl;\r\n  @Input() placeholder = 'Placeholder';\r\n}\r\n",
+            "styleUrl": "./input.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"input-group\">\r\n  <label\r\n    [for]=\"id\"\r\n    [ngClass]=\"{\r\n      'error-label': control.invalid && (control.dirty || control.touched),\r\n    }\"\r\n    >{{ labelText }}</label\r\n  >\r\n  <input\r\n    [id]=\"id\"\r\n    [type]=\"type\"\r\n    [formControl]=\"control\"\r\n    [placeholder]=\"placeholder\"\r\n    (blur)=\"control.markAsTouched()\"\r\n  />\r\n  <div\r\n    *ngIf=\"control.invalid && (control.dirty || control.touched)\"\r\n    class=\"error-messages\"\r\n  >\r\n    <span *ngIf=\"control.errors?.['required']\"\r\n      >{{ labelText }} es requerido.</span\r\n    >\r\n    <span *ngIf=\"control.errors?.['email']\"\r\n      >Por favor ingresa un email válido.</span\r\n    >\r\n    <span *ngIf=\"control.errors?.['minlength']\"\r\n      >Mínimo\r\n      {{ control.errors?.['minlength']?.requiredLength ?? 0 }} caracteres\r\n      requeridos.</span\r\n    >\r\n    <span *ngIf=\"control.errors?.['maxlength']\"\r\n      >Máximo\r\n      {{ control.errors?.['maxlength']?.requiredLength ?? 0 }} caracteres\r\n      permitidos.</span\r\n    >\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "InputTextComponent",
+            "id": "component-InputTextComponent-fbee1e66c69ea3cb182680e8e9c5cbbfadd21ddf181eadb840eae151e50b000301d40b50ec75f563d65bfd7c9a3fb6a6b71a43b91d12ad87d799f92706d87ae8",
+            "file": "src/app/components/atoms/input-text/input-text.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-input-text",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./input-text.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "labelText",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "name",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "defaultValue": "'Placeholder'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "stateClass",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "\"text\" | \"password\" | \"email\"",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "NgClass"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { FormsModule } from '@angular/forms';\r\nimport { NgClass } from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'app-input-text',\r\n  standalone: true,\r\n  imports: [FormsModule, NgClass],\r\n  templateUrl: './input-text.component.html',\r\n  styleUrl: './input-text.component.css'\r\n})\r\nexport class InputTextComponent {\r\n@Input() labelText = '';\r\n@Input() type: 'text' | 'password' | 'email' = 'text';\r\n@Input() placeholder = 'Placeholder';\r\n@Input() disabled = false;\r\n@Input() value = '';\r\n@Input() name = '';\r\n@Input() stateClass = '';\r\n\r\n}\r\n",
+            "styleUrl": "./input-text.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<!-- eslint-disable @angular-eslint/template/label-has-associated-control -->\r\n<div class=\"input-text-group\" [ngClass]=\"[stateClass]\">\r\n  @if(labelText) {\r\n    <label>{{ labelText }}</label>\r\n  }\r\n  <input [type]=\"type\"\r\n         [placeholder]=\"placeholder\"\r\n         [disabled]=\"disabled\"\r\n         [(ngModel)]=\"value\"\r\n         [name]=\"name\"\r\n         />\r\n\r\n</div>\r\n"
+        },
+        {
+            "name": "ModalComponent",
+            "id": "component-ModalComponent-02156ba333bad6d1ea2bc895758e8fcd9da9bdcd0553aa21bcd1f6b65cb6bef639e44b55790385a1185778e51839a763c03c83f11e92b42674c753c30bed3659",
+            "file": "src/app/components/organisms/modal/modal.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-modal",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./modal.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "isOpen",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "modalTitle",
+                    "defaultValue": "\"Modal Title\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "closeModal",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "handleKeydown",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "KeyboardEvent",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "KeyboardEvent",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { ButtonComponent } from \"../../atoms/button/button.component\";\r\n\r\n@Component({\r\n  selector: 'app-modal',\r\n  standalone: true,\r\n  imports: [ButtonComponent],\r\n  templateUrl: './modal.component.html',\r\n  styleUrl: './modal.component.css'\r\n})\r\nexport class ModalComponent {\r\n@Input() isOpen = true;\r\nmodalTitle = \"Modal Title\";\r\n\r\ncloseModal() {\r\n  this.isOpen = !this.isOpen;\r\n}\r\n // Manejar el evento de teclado\r\n handleKeydown(event: KeyboardEvent): void {\r\n  if (event.key === 'Enter') {\r\n    this.closeModal();\r\n  }\r\n}\r\n}\r\n",
+            "styleUrl": "./modal.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "@if (isOpen) {\r\n  <div class=\"modal__overlay\">\r\n    <div class=\"modal__box\">\r\n      <div class=\"modal__header\">\r\n        <h2>{{modalTitle}}</h2>\r\n          <div class=\"modal__header--close\" tabindex=\"0\" (click)=\"closeModal()\" (keydown)=\"handleKeydown($event)\" aria-label=\"Cerrar modal\">\r\n            <img src=\"icons/close-icon.svg\" alt=\"\">\r\n          </div>\r\n      </div>\r\n      <div class=\"modal__content\">\r\n        <p>Content text for the modal, we must give the user the actions to choose.</p>\r\n      </div>\r\n      <div class=\"modal__footer\">\r\n        <app-button [buttontext]=\"'Secondary'\" [type]=\"'sdp-btn--secondary'\"></app-button>\r\n        <app-button [buttontext]=\"'Primary'\"></app-button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n}\r\n"
+        },
+        {
+            "name": "PrioriAhorroComponent",
+            "id": "component-PrioriAhorroComponent-632e3f1cadcf0cc4f581f3723964ac0c790196ad2dfac30b1e5a1d9e991569f8e608e8c0fe3787c283569803a65e9f612a554de02be80e1cccc40cf8930f4733",
+            "file": "src/app/components/templates/priori-ahorro/priori-ahorro.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-priori-ahorro",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./priori-ahorro.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-priori-ahorro',\r\n  standalone: true,\r\n  imports: [],\r\n  templateUrl: './priori-ahorro.component.html',\r\n  styleUrl: './priori-ahorro.component.css',\r\n})\r\nexport class PrioriAhorroComponent {}\r\n",
+            "styleUrl": "./priori-ahorro.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<p>priori-ahorro works!</p>\r\n"
+        },
+        {
+            "name": "SelectComponent",
+            "id": "component-SelectComponent-af9c4ad88c2db1ff52ad55bb2e5a17ec7a20a984eee970e3b97d0193ca016eaa29acb1ea7f825ddc826fa0017cd6001e3da7b41d75513d51d0bc10f2de634d67",
+            "file": "src/app/components/atoms/select/select.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-select",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./select.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "control",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "FormControl",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "options",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "literal type[]",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "selectionChange",
+                    "defaultValue": "new EventEmitter<unknown>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "EventEmitter<>"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "selectedValue",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onSelectChange",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgFor"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\r\nimport { NgFor } from '@angular/common';\r\nimport { FormControl, ReactiveFormsModule } from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'app-select',\r\n  standalone: true,\r\n  imports: [NgFor, ReactiveFormsModule],\r\n  templateUrl: './select.component.html',\r\n  styleUrl: './select.component.css',\r\n})\r\nexport class SelectComponent {\r\n  @Input() options: { label: string; value: string }[] = [];\r\n  @Input() label = '';\r\n  @Output() selectionChange: EventEmitter<unknown> =\r\n    new EventEmitter<unknown>();\r\n\r\n  selectedValue: unknown;\r\n  @Input() control!: FormControl;\r\n\r\n  onSelectChange(event: Event): void {\r\n    this.selectionChange.emit(this.selectedValue);\r\n    console.log(event);\r\n    console.log(this.selectedValue);\r\n  }\r\n}\r\n",
+            "styleUrl": "./select.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"select-group\">\r\n  <label for=\"selectElement\">{{ label }}</label>\r\n  <select\r\n    id=\"selectElement\"\r\n    (change)=\"onSelectChange($event)\"\r\n    [formControl]=\"control\"\r\n  >\r\n    <option value=\"\" selected>Seleccione</option>\r\n    <option *ngFor=\"let option of options\" [value]=\"option.value\">\r\n      {{ option.label }}\r\n    </option>\r\n  </select>\r\n</div>\r\n"
+        },
+        {
+            "name": "StepComponent",
+            "id": "component-StepComponent-9a7ecfca64adf59142935c7829eff6a12de971d64e1e818e0f6b140c7bfa74def837fd380186d0a9b84fed8071b89eb9a56fcdeea8e15b4287e526af33da4d11",
+            "file": "src/app/components/molecules/step/step.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-step",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./step.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "active",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "completed",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "number",
+                    "defaultValue": "1",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "subtitle",
+                    "defaultValue": "'Subtitulo'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "'Titulo'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgClass"
+                },
+                {
+                    "name": "NgIf"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { NgClass, NgIf } from '@angular/common';\r\nimport { Component, Input } from '@angular/core';\r\n@Component({\r\n  selector: 'app-step',\r\n  standalone: true,\r\n  imports: [NgClass, NgIf],\r\n  templateUrl: './step.component.html',\r\n  styleUrl: './step.component.css',\r\n})\r\nexport class StepComponent {\r\n  @Input() number = 1;\r\n  @Input() title = 'Titulo';\r\n  @Input() subtitle = 'Subtitulo';\r\n  @Input() active = false;\r\n  @Input() completed = false;\r\n}\r\n",
+            "styleUrl": "./step.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"step-box\">\r\n  <div\r\n    class=\"step-bar\"\r\n    [ngClass]=\"{\r\n      completed: completed,\r\n      active: active,\r\n      inactive: !active && !completed,\r\n    }\"\r\n  >\r\n    <div class=\"step-circle\">\r\n      <ng-container *ngIf=\"completed; else notCompleted\">\r\n        <div class=\"circle circle-img\">\r\n          <svg width=\"25\" height=\"24\" viewBox=\"0 0 25 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\r\n            <g clip-path=\"url(#clip0_539_11308)\">\r\n            <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M21.1062 6.31064C21.6006 6.75169 21.634 7.49927 21.1808 7.98041L11.163 18.6168C10.933 18.861 10.6082 19 10.2679 19C9.92749 19 9.60274 18.861 9.37274 18.6168L4.81918 13.7821C4.36602 13.3009 4.39941 12.5533 4.89377 12.1123C5.38813 11.6712 6.15624 11.7038 6.60941 12.1849L10.2679 16.0692L19.3906 6.38324C19.8438 5.9021 20.6119 5.8696 21.1062 6.31064Z\" fill=\"white\"/>\r\n            </g>\r\n            <defs>\r\n            <clipPath id=\"clip0_539_11308\">\r\n            <rect width=\"24\" height=\"24\" fill=\"white\" transform=\"translate(0.5 0.000488281)\"/>\r\n            </clipPath>\r\n            </defs>\r\n            </svg>\r\n        </div>\r\n      </ng-container>\r\n      <ng-template #notCompleted>\r\n        <div class=\"circle\">\r\n          <p>{{ number }}</p>\r\n        </div>\r\n      </ng-template>\r\n    </div>\r\n    <div class=\"step-text\">\r\n      <p>{{ title }}</p>\r\n      <small>{{ subtitle }}</small>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "StepperComponent",
+            "id": "component-StepperComponent-5a3d234f52348ec7e33b5241ffb303c77cbd8558191237ab5755c1c78b252fa5b4c9e8d49f01bfa541d89fca084c026fce8e94ea09769176c57d3131401306bd",
+            "file": "src/app/components/organisms/stepper/stepper.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-stepper",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./stepper.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "currentStep",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "steps",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "literal type[]",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgFor"
+                },
+                {
+                    "name": "StepComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { NgFor } from '@angular/common';\r\nimport { StepComponent } from '../../molecules/step/step.component';\r\n\r\n@Component({\r\n  selector: 'app-stepper',\r\n  standalone: true,\r\n  imports: [NgFor, StepComponent],\r\n  templateUrl: './stepper.component.html',\r\n  styleUrl: './stepper.component.css',\r\n})\r\nexport class StepperComponent {\r\n  @Input() steps: { title: string; subtitle: string }[] = [];\r\n  @Input() currentStep = 0;\r\n}\r\n",
+            "styleUrl": "./stepper.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"stepper-box\">\r\n  <ng-container *ngFor=\"let step of steps; let i = index\">\r\n    <app-step\r\n      [number]=\"i + 1\"\r\n      [title]=\"step.title\"\r\n      [subtitle]=\"step.subtitle\"\r\n      [active]=\"currentStep === i\"\r\n      [completed]=\"i < currentStep\"\r\n    ></app-step>\r\n  </ng-container>\r\n</div>\r\n"
+        },
+        {
+            "name": "TitlePageComponent",
+            "id": "component-TitlePageComponent-5837f34b966154812b3d6784460ca37298f4e241cf0bc9130fa8598920c3b8a8bf8f5226ab3299ec017026346dc89484221f07e4d06554300ca9f604d8923c6b",
+            "file": "src/app/components/organisms/title-page/title-page.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-title-page",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./title-page.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "breadcrumb",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "text",
+                    "defaultValue": "'Título de la página'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "BreadcrumbComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { BreadcrumbComponent } from '../../molecules/breadcrumb/breadcrumb.component';\r\n\r\n@Component({\r\n  selector: 'app-title-page',\r\n  standalone: true,\r\n  imports: [BreadcrumbComponent],\r\n  templateUrl: './title-page.component.html',\r\n  styleUrl: './title-page.component.css',\r\n})\r\nexport class TitlePageComponent {\r\n  @Input() text = 'Título de la página';\r\n  @Input() breadcrumb = true;\r\n}\r\n",
+            "styleUrl": "./title-page.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<section class=\"title-page\">\r\n  <div class=\"title\">\r\n    <img src=\"icons/back-icon.svg\" alt=\"\" />\r\n    <h1>{{ text }}</h1>\r\n  </div>\r\n  @if (breadcrumb) {\r\n    <div class=\"breadcrumb\">\r\n      <app-breadcrumb></app-breadcrumb>\r\n    </div>\r\n  }\r\n</section>\r\n"
+        },
+        {
+            "name": "ToastComponent",
+            "id": "component-ToastComponent-46492efd454a4262beac77de5fc4bb67652ce0a78355a4f70ba4909de4a3e20cf8e0b068a73f454e6f94003b8657d12a1b6fba764d51e864e12c256746bc831c",
+            "file": "src/app/components/organisms/toast/toast.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-toast",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./toast.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "description",
+                    "defaultValue": "'Here is the description'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "primaryButtonLabel",
+                    "defaultValue": "'Aceptar'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "secondaryButtonLabel",
+                    "defaultValue": "'Cancelar'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "'Toast title'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'info'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "\"info\" | \"success\" | \"warning\" | \"error\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "primaryButtonClick",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "secondaryButtonClick",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 30,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "iconUrls",
+                    "defaultValue": "{\r\n    info: 'icons/info-icon.svg',\r\n    success: 'icons/success-icon.svg',\r\n    warning: 'icons/warning-icon.svg',\r\n    error: 'icons/error-icon.svg',\r\n  }",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Record< | string>",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgClass"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\nimport { NgClass } from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'app-toast',\r\n  standalone: true,\r\n  imports: [NgClass],\r\n  templateUrl: './toast.component.html',\r\n  styleUrl: './toast.component.css',\r\n})\r\nexport class ToastComponent {\r\n  @Input() type: 'info' | 'success' | 'warning' | 'error' = 'info';\r\n  @Input() title = 'Toast title';\r\n  @Input() description = 'Here is the description';\r\n\r\n  // Objeto con URLs de íconos según el tipo\r\n  iconUrls: Record<ToastComponent['type'], string> = {\r\n    info: 'icons/info-icon.svg',\r\n    success: 'icons/success-icon.svg',\r\n    warning: 'icons/warning-icon.svg',\r\n    error: 'icons/error-icon.svg',\r\n  };\r\n\r\n  // Etiquetas de los botones\r\n  @Input() primaryButtonLabel = 'Aceptar';\r\n  @Input() secondaryButtonLabel = 'Cancelar';\r\n\r\n  // Eventos al hacer clic en los botones\r\n  @Output() primaryButtonClick = new EventEmitter<void>();\r\n  @Output() secondaryButtonClick = new EventEmitter<void>();\r\n\r\n  get iconUrl(): string {\r\n    return this.iconUrls[this.type];\r\n  }\r\n}\r\n",
+            "styleUrl": "./toast.component.css",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "iconUrl": {
+                    "name": "iconUrl",
+                    "getSignature": {
+                        "name": "iconUrl",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 32
+                    }
+                }
+            },
+            "templateData": "<div class=\"toast-container\" [ngClass]=\"type\">\r\n  <div class=\"toast__icon\">\r\n    <img [src]=\"iconUrl\" alt=\"Icono de toast\" />\r\n  </div>\r\n  <div class=\"toast__content\">\r\n    <div class=\"toast__text\">\r\n      <h2>{{ title }}</h2>\r\n      <p>{{ description }}</p>\r\n    </div>\r\n    <div class=\"toast__actions\">\r\n      <button (click)=\"primaryButtonClick.emit()\">\r\n        {{ primaryButtonLabel }}\r\n      </button>\r\n      <button (click)=\"secondaryButtonClick.emit()\">\r\n        {{ secondaryButtonLabel }}\r\n      </button>\r\n    </div>\r\n  </div>\r\n  <div class=\"toast__close\">\r\n    <svg\r\n      width=\"24\"\r\n      height=\"24\"\r\n      viewBox=\"0 0 24 24\"\r\n      fill=\"none\"\r\n      stroke=\"none\"\r\n      xmlns=\"http://www.w3.org/2000/svg\"\r\n    >\r\n      <g id=\"vuesax/outline/close\">\r\n        <g id=\"close\">\r\n          <path\r\n            id=\"Vector\"\r\n            d=\"M17.3346 7.49222L7.49194 17.3349C7.35091 17.4759 7.10975 17.4759 6.96872 17.3349C6.82769 17.1938 6.82769 16.9527 6.96872 16.8116L16.8114 6.96899C16.9524 6.82796 17.1936 6.82796 17.3346 6.96899C17.4756 7.11002 17.4756 7.35119 17.3346 7.49222Z\"\r\n          />\r\n          <path\r\n            id=\"Vector_2\"\r\n            d=\"M17.3346 17.3347C17.1936 17.4757 16.9524 17.4757 16.8114 17.3347L6.96872 7.49208C6.82769 7.35105 6.82769 7.10989 6.96872 6.96886C7.10975 6.82783 7.35091 6.82783 7.49194 6.96886L17.3346 16.8115C17.4756 16.9525 17.4756 17.1937 17.3346 17.3347Z\"\r\n          />\r\n        </g>\r\n      </g>\r\n    </svg>\r\n  </div>\r\n</div>\r\n"
+        }
+    ],
+    "modules": [],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "appConfig",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.config.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ApplicationConfig",
+                "defaultValue": "{\r\n  providers: [\r\n    provideZoneChangeDetection({ eventCoalescing: true }),\r\n    provideRouter(routes),\r\n  ],\r\n}"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/app/app.config.ts": [
+                {
+                    "name": "appConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.config.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ApplicationConfig",
+                    "defaultValue": "{\r\n  providers: [\r\n    provideZoneChangeDetection({ eventCoalescing: true }),\r\n    provideRouter(routes),\r\n  ],\r\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.config.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "appConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/atoms/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/atoms/input-text/input-text.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputTextComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/8",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/atoms/input/input.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/atoms/select/select.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SelectComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/molecules/breadcrumb/breadcrumb.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BreadcrumbComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/molecules/card/card.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CardComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/molecules/chips/chips.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ChipsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/molecules/step/step.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "StepComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/organisms/empty-state/empty-state.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "EmptyStateComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/organisms/footer/footer.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FooterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/organisms/header/header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/organisms/heading/heading.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeadingComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/organisms/modal/modal.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ModalComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/organisms/stepper/stepper.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "StepperComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/organisms/title-page/title-page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TitlePageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/organisms/toast/toast.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ToastComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/templates/forms/forms.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FormsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/templates/forms/forms.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "User",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/templates/home/home.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HomeComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/templates/priori-ahorro/priori-ahorro.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PrioriAhorroComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/formularios/priori-ahorro/completado/completado.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CompletadoComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/formularios/priori-ahorro/datos-cliente/datos-cliente.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DatosClienteComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/formularios/priori-ahorro/datos-plan/datos-plan.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DatosPlanComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

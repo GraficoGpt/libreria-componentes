@@ -1,0 +1,35 @@
+.breadcrumb {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding-left: 2.5rem;
+}
+
+.breadcrumb ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li a {
+  text-decoration: none;
+  color: var(--primary-500); /* Color azul para el link */
+  font-weight: 500;
+}
+
+.breadcrumb li span {
+  color: var(--neutral-500); /* Color gris para el texto */
+  font-weight: var(--font-weight-medium);
+}
+
+.breadcrumb li + li::before {
+  content: "•";
+  margin: 0 8px;
+  color: #6c757d; /* Color gris para el separador */
+}

@@ -1,0 +1,8 @@
+<button class="sdp-chip" [ngClass]="chipState" (click)="toggleActive()" (keydown)="handleKeyDown($event)" tabindex="0">
+  <div class="sdp-chip-icon">
+    <img class="sdp-chip-icon__filter" [src]="chipIcon" alt="">
+  </div>
+  <div class="sdp-chip-text">
+    <p>{{chipText}}</p>
+  </div>
+</button>

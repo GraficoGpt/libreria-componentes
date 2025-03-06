@@ -1,0 +1,11 @@
+<div class="stepper-box">
+  <ng-container *ngFor="let step of steps; let i = index">
+    <app-step
+      [number]="i + 1"
+      [title]="step.title"
+      [subtitle]="step.subtitle"
+      [active]="currentStep === i"
+      [completed]="i < currentStep"
+    ></app-step>
+  </ng-container>
+</div>

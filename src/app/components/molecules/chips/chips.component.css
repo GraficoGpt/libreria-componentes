@@ -1,0 +1,51 @@
+.sdp-chip {
+  display: flex;
+  width: max-content;
+  padding: 8px 12px;
+  border: 1px solid var(--neutral-300);
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background-color: var(--white);
+}
+
+.sdp-chip-icon__filter {
+  filter: var(--filter-primary-500)
+}
+
+.sdp-chip-text p {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  color: var(--neutral-700);
+}
+
+.sdp-chip:hover {
+  background-color: var(--primary-50);
+  cursor: pointer;
+}
+
+.sdp-chip.active {
+  background-color: var(--primary-500);
+}
+
+.sdp-chip.active .sdp-chip-text p {
+  color: var(--white);
+}
+
+.sdp-chip.active .sdp-chip-icon__filter {
+  filter: var(--filter-white);
+}
+
+.sdp-chip.disabled {
+  background-color: var(--neutral-100);
+  cursor: not-allowed;
+}
+
+.sdp-chip.disabled .sdp-chip-text p {
+  color: var(--neutral-400);
+}
+
+.sdp-chip.disabled .sdp-chip-icon__filter {
+  filter: var(--filter-neutral-400);
+}

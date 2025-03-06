@@ -1,0 +1,13 @@
+<div class="select-group">
+  <label for="selectElement">{{ label }}</label>
+  <select
+    id="selectElement"
+    (change)="onSelectChange($event)"
+    [formControl]="control"
+  >
+    <option value="" selected>Seleccione</option>
+    <option *ngFor="let option of options" [value]="option.value">
+      {{ option.label }}
+    </option>
+  </select>
+</div>
