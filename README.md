@@ -41,11 +41,23 @@ Esto iniciará Storybook en el puerto 6600. Navega a `http://localhost:6600/` pa
 Este proyecto está configurado para desplegar Storybook en Railway. Para desplegar:
 
 1. Asegúrate de tener una cuenta en [Railway](https://railway.app/)
-2. Instala la CLI de Railway: `npm install -g @railway/cli`
-3. Inicia sesión: `railway login`
-4. Crea un nuevo proyecto: `railway init`
-5. Despliega: `railway up`
+2. Antes de desplegar, ejecuta localmente:
 
-Railway utilizará automáticamente la configuración en `railway.json` y `Procfile` para construir y servir Storybook en lugar de la aplicación Angular.
+   ```bash
+   npm install
+   ```
 
-El despliegue expondrá Storybook (normalmente en el puerto 6600 localmente) a través de una URL pública proporcionada por Railway.
+   Esto actualizará el package-lock.json con todas las dependencias necesarias.
+
+3. Sube los cambios a tu repositorio Git
+4. En Railway, crea un nuevo proyecto desde tu repositorio Git
+5. Railway utilizará automáticamente la configuración en `railway.json`, `nixpacks.toml` y `Procfile` para construir y servir Storybook
+
+Alternativamente, puedes usar la CLI de Railway:
+
+1. Instala la CLI: `npm install -g @railway/cli`
+2. Inicia sesión: `railway login`
+3. Vincula tu proyecto: `railway link`
+4. Despliega: `railway up`
+
+Railway utilizará Node.js 20 (especificado en nixpacks.toml) para evitar problemas de compatibilidad con las dependencias y expondrá Storybook a través de una URL pública.
