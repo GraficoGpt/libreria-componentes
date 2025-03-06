@@ -25,3 +25,27 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Storybook
+
+Para ejecutar Storybook localmente:
+
+```bash
+npm run storybook
+```
+
+Esto iniciará Storybook en el puerto 6600. Navega a `http://localhost:6600/` para ver la biblioteca de componentes.
+
+## Despliegue en Railway
+
+Este proyecto está configurado para desplegar Storybook en Railway. Para desplegar:
+
+1. Asegúrate de tener una cuenta en [Railway](https://railway.app/)
+2. Instala la CLI de Railway: `npm install -g @railway/cli`
+3. Inicia sesión: `railway login`
+4. Crea un nuevo proyecto: `railway init`
+5. Despliega: `railway up`
+
+Railway utilizará automáticamente la configuración en `railway.json` y `Procfile` para construir y servir Storybook en lugar de la aplicación Angular.
+
+El despliegue expondrá Storybook (normalmente en el puerto 6600 localmente) a través de una URL pública proporcionada por Railway.

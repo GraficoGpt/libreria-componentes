@@ -10,7 +10,9 @@
     "lint": "ng lint",
     "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
     "sb": "ng run test-project:storybook",
-    "build-storybook": "ng run test-project:build-storybook"
+    "build-storybook": "ng run test-project:build-storybook",
+    "storybook": "ng run test-project:storybook --port 6600",
+    "railway": "npm run build-storybook && npx http-server storybook-static -p $PORT"
   },
   "private": true,
   "dependencies": {
@@ -45,6 +47,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-storybook": "^0.11.1",
+    "http-server": "^14.1.1",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
